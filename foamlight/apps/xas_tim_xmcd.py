@@ -30,7 +30,7 @@ from .xas_tim import (
     XasTimXgmPulsePlot, XasTimDigitizerPulsePlot, XasTimXgmSpectrumPlot
 )
 from ..core import (
-    create_special, profiler, QThreadKbClient, _FoamLightApp
+    create_app, profiler, QThreadKbClient, _FoamLightApp
 )
 
 _DIGITIZER_CHANNEL_COLORS = ['r', 'b', 'o', 'k']
@@ -301,9 +301,9 @@ class XasTimXmcdSpectraPlot(TimedPlotWidgetF):
             self._displayed = index
 
 
-@create_special(XasTimXmcdCtrlWidget,
-                XasTimXmcdProcessor,
-                QThreadKbClient)
+@create_app(XasTimXmcdCtrlWidget,
+            XasTimXmcdProcessor,
+            QThreadKbClient)
 class XasTimXmcd(_FoamLightApp):
     """XAS-TIM-XMCD application."""
 

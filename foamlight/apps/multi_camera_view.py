@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import QGridLayout, QWidget
 from foamgraph import ImageViewF, SmartLineEdit
 
 from ..core import (
-    create_special, profiler, QThreadKbClient, QThreadWorker,
+    create_app, profiler, QThreadKbClient, QThreadWorker,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 
@@ -138,9 +138,9 @@ class CameraView(ImageViewF):
         self.setTitle(data["channels"][self._index])
 
 
-@create_special(MultiCameraViewCtrlWidget,
-                MultiCameraViewProcessor,
-                QThreadKbClient)
+@create_app(MultiCameraViewCtrlWidget,
+            MultiCameraViewProcessor,
+            QThreadKbClient)
 class MultiCameraView(_FoamLightApp):
     """Multi-camera view application."""
 

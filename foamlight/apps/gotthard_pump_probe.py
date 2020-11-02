@@ -24,7 +24,7 @@ from pyfoamalgo import MovingAverageArray
 
 from ..config import _MAX_N_GOTTHARD_PULSES, _PIXEL_DTYPE, GOTTHARD_DEVICE
 from ..core import (
-    create_special, profiler, QThreadKbClient, QThreadWorker,
+    create_app, profiler, QThreadKbClient, QThreadWorker,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 from ..exceptions import ProcessingError
@@ -365,9 +365,9 @@ class GotthardPumpProbeImageView(ImageViewF):
         self.setImage(data['corrected'])
 
 
-@create_special(GotthardPumpProbeCtrlWidget,
-                GotthardPumpProbeProcessor,
-                QThreadKbClient)
+@create_app(GotthardPumpProbeCtrlWidget,
+            GotthardPumpProbeProcessor,
+            QThreadKbClient)
 class GotthardPumpProbe(_FoamLightApp):
     """Gotthard pump-probe application."""
 

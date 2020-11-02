@@ -738,7 +738,7 @@ class QThreadKbClient(_BaseQThreadClient):
         self.log.info(f"Disconnected with {self._endpoint_st}")
 
 
-def create_special(ctrl_klass, worker_klass, client_klass):
+def create_app(ctrl_klass, worker_klass, client_klass):
     """Decorator for creating an application."""
     def wrap(instance_type):
         @functools.wraps(instance_type)
