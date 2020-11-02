@@ -1,4 +1,5 @@
 from .camera_view import CameraView
+from .daq_monitor import DaqMonitor
 from .gotthard import Gotthard
 from .gotthard_pump_probe import GotthardPumpProbe
 from .multi_camera_view import MultiCameraView

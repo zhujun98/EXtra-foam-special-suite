@@ -34,6 +34,10 @@ setup(
             'extra_data',
             'karabo-bridge',
         ],
+        'doocs': [
+            'liso>=0.3.1',
+            'pydoocs',
+        ],
         'test': [
             'pytest',
         ],

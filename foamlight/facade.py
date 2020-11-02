@@ -16,8 +16,8 @@ from PyQt5.QtGui import QIcon
 
 from . import __version__
 from .apps import (
-    CameraView, Gotthard, GotthardPumpProbe, MultiCameraView, TrXas, VectorView,
-    XasTim, XasTimXmcd, XesTiming
+    CameraView, DaqMonitor, Gotthard, GotthardPumpProbe, MultiCameraView,
+    TrXas, VectorView, XasTim, XasTimXmcd, XesTiming
 )
 
 
@@ -183,6 +183,7 @@ class AccFacade(_FacadeBase):
     def __init__(self):
         super().__init__("ACC")
 
+        self.addSpecial(DaqMonitor)
         self.addCommonSpecials()
 
         self.initUI()
