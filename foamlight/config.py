@@ -50,7 +50,7 @@ class Config(collections.abc.Mapping):
 
     @property
     def topics(self):
-        return 'SPB', 'FXE', 'SCS', 'SQS', 'MID', 'HED'
+        return 'ACC', 'SPB', 'FXE', 'SCS', 'SQS', 'MID', 'HED'
 
 
 config = Config()

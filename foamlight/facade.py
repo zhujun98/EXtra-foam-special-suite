@@ -109,9 +109,10 @@ class _FacadeBase(QMainWindow):
         self._buttons[title] = btn
 
     def addCommonSpecials(self):
-        self.addSpecial(CameraView)
-        self.addSpecial(VectorView)
-        self.addSpecial(MultiCameraView)
+        if self._topic not in ["ACC"]:
+            self.addSpecial(CameraView)
+            self.addSpecial(VectorView)
+            self.addSpecial(MultiCameraView)
 
 
 class SpbFacade(_FacadeBase):
@@ -178,6 +179,16 @@ class HedFacade(_FacadeBase):
         self.show()
 
 
+class AccFacade(_FacadeBase):
+    def __init__(self):
+        super().__init__("ACC")
+
+        self.addCommonSpecials()
+
+        self.initUI()
+        self.show()
+
+
 def create_facade(topic):
     if topic == "SPB":
         return SpbFacade()
@@ -193,5 +204,8 @@ def create_facade(topic):
 
     if topic == "HED":
         return HedFacade()
+
+    if topic == "ACC":
+        return AccFacade()
 
     raise ValueError(f"{topic} does not have a special analysis suite")
