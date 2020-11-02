@@ -546,7 +546,7 @@ class TrXas(_FoamLightApp):
 
     def __init__(self, topic):
         """Initialization."""
-        super().__init__(topic, with_dark=False)
+        super().__init__(topic, with_levels=True)
 
         self._roi1_image = TrXasRoiImageView(1, parent=self)
         self._roi2_image = TrXasRoiImageView(2, parent=self)

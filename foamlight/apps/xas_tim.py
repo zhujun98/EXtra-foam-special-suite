@@ -533,7 +533,7 @@ class XasTim(_FoamLightApp):
                   "intensity monitor"
 
     def __init__(self, topic):
-        super().__init__(topic, with_dark=False, with_levels=False)
+        super().__init__(topic)
 
         self._xgm = XasTimXgmPulsePlot(parent=self)
         self._digitizer = XasTimDigitizerPulsePlot(parent=self)

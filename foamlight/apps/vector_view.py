@@ -233,7 +233,7 @@ class VectorView(_FoamLightApp):
     _long_title = "Vector view"
 
     def __init__(self, topic):
-        super().__init__(topic, with_dark=False, with_levels=False)
+        super().__init__(topic)
 
         self._vector = VectorPlot(parent=self)
         self._corr_in_train = InTrainVectorCorrelationPlot(parent=self)

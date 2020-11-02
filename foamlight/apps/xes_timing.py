@@ -165,7 +165,7 @@ class XesTiming(_FoamLightApp):
     _long_title = "X-ray emission spectroscopy timing tool"
 
     def __init__(self, topic):
-        super().__init__(topic)
+        super().__init__(topic, with_dark=True, with_levels=True)
 
         self._view = XesTimingView(parent=self)
         self._delay_scan = XesTimingDelayScan(parent=self)

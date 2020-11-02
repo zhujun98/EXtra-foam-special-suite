@@ -234,7 +234,7 @@ class CameraView(_FoamLightApp):
     _long_title = "Camera view"
 
     def __init__(self, topic):
-        super().__init__(topic)
+        super().__init__(topic, with_dark=True, with_levels=True)
 
         self._view = CameraViewImage(parent=self)
         self._roi_hist = CameraViewRoiHist(parent=self)

@@ -376,7 +376,7 @@ class GotthardPumpProbe(_FoamLightApp):
     _long_title = "Gotthard pump-probe analysis"
 
     def __init__(self, topic):
-        super().__init__(topic, with_dark=False)
+        super().__init__(topic, with_levels=True)
 
         self._fom_poi_plot = GotthardPumpProbeFomPulsePlot(parent=self)
         self._fom_mean_plot = GotthardPumpProbeFomMeanPlot(parent=self)
