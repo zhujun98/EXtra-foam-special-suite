@@ -23,18 +23,17 @@ from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QSizePolicy, QSplitter
 )
 
-from karabo_bridge import Client as KaraboBridgeClient
-
 from foamgraph import ImageViewF, set_button_color, SmartLineEdit
 
 from pyfoamalgo import intersection, SimpleQueue
 
 from . import __version__
-from .logger import GuiLogger, logger
+from .logger import GuiLogger, logger, ThreadLogger
 from .exceptions import ProcessingError
 from .config import _IMAGE_DTYPE, config
 from .pipeline import (
-    DataTransformer, FoamZmqClient, KaraboGateClient, SourceCatalog
+    DataTransformer, FoamZmqClient, KaraboBridgeClient, KaraboGateClient,
+    SourceCatalog
 )
 from .widgets import SingleRoiCtrlWidget
 
@@ -233,37 +232,6 @@ def profiler(info):
     return wrap
 
 
-class _ThreadLogger(QObject):
-    """Logging in the thread."""
-    # post messages in the main thread
-    debug_sgn = pyqtSignal(str)
-    info_sgn = pyqtSignal(str)
-    warning_sgn = pyqtSignal(str)
-    error_sgn = pyqtSignal(str)
-
-    def debug(self, msg):
-        """Log debug information in the main GUI."""
-        self.debug_sgn.emit(msg)
-
-    def info(self, msg):
-        """Log info information in the main GUI."""
-        self.info_sgn.emit(msg)
-
-    def warning(self, msg):
-        """Log warning information in the main GUI."""
-        self.warning_sgn.emit(msg)
-
-    def error(self, msg):
-        """Log error information in the main GUI."""
-        self.error_sgn.emit(msg)
-
-    def logOnMainThread(self, instance):
-        self.debug_sgn.connect(instance.onDebugReceivedST)
-        self.info_sgn.connect(instance.onInfoReceivedST)
-        self.warning_sgn.connect(instance.onWarningReceivedST)
-        self.error_sgn.connect(instance.onErrorReceivedST)
-
-
 class QThreadWorker(QObject):
     """Base class of worker running in a thread.
 
@@ -291,7 +259,7 @@ class QThreadWorker(QObject):
 
         self._roi_geom_st = None
 
-        self.log = _ThreadLogger()
+        self.log = ThreadLogger()
 
     def onResetST(self):
         """Reset the internal state of process worker."""
@@ -571,7 +539,7 @@ class _BaseQThreadClient(QThread):
 
         self._endpoint_st = None
 
-        self.log = _ThreadLogger()
+        self.log = ThreadLogger()
 
     def run(self):
         """Override."""
@@ -738,7 +706,7 @@ class QThreadKbClient(_BaseQThreadClient):
         self.log.info(f"Disconnected with {self._endpoint_st}")
 
 
-def create_special(ctrl_klass, worker_klass, client_klass):
+def create_app(ctrl_klass, worker_klass, client_klass):
     """Decorator for creating an application."""
     def wrap(instance_type):
         @functools.wraps(instance_type)

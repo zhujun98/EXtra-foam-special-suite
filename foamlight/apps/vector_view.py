@@ -19,7 +19,7 @@ from foamgraph import FoamColor, PlotWidgetF, TimedPlotWidgetF
 from pyfoamalgo import SimpleSequence
 
 from ..core import (
-    create_special, profiler, QThreadFoamClient, QThreadWorker,
+    create_app, profiler, QThreadFoamClient, QThreadWorker,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 from ..exceptions import ProcessingError
@@ -222,9 +222,9 @@ class VectorCorrelationPlot(TimedPlotWidgetF):
             self._plot.setData(vec1, vec2)
 
 
-@create_special(VectorViewCtrlWidget,
-                VectorViewProcessor,
-                QThreadFoamClient)
+@create_app(VectorViewCtrlWidget,
+            VectorViewProcessor,
+            QThreadFoamClient)
 class VectorView(_FoamLightApp):
     """Vector view application."""
 

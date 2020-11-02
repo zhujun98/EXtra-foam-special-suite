@@ -24,7 +24,7 @@ from pyfoamalgo import hist_with_stats, MovingAverageArray
 
 from ..config import _IMAGE_DTYPE, _MAX_INT32
 from ..core import (
-    create_special, profiler, QThreadKbClient, QThreadWorker,
+    create_app, profiler, QThreadKbClient, QThreadWorker,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 
@@ -223,9 +223,9 @@ class CameraViewRoiHist(HistWidgetF):
             self.updateTitle(mean, median, std)
 
 
-@create_special(CamViewCtrlWidget,
-                CameraViewProcessor,
-                QThreadKbClient)
+@create_app(CamViewCtrlWidget,
+            CameraViewProcessor,
+            QThreadKbClient)
 class CameraView(_FoamLightApp):
     """Camera view application."""
 

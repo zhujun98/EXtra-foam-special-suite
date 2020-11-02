@@ -30,7 +30,7 @@ from pyfoamalgo import (
 
 from ..config import config
 from ..core import (
-    create_special, profiler, QThreadWorker, QThreadKbClient,
+    create_app, profiler, QThreadWorker, QThreadKbClient,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 from ..exceptions import ProcessingError
@@ -521,9 +521,9 @@ class XasTimXgmSpectrumPlot(TimedPlotWidgetF):
         self._count.setData(centers, counts)
 
 
-@create_special(XasTimCtrlWidget,
-                XasTimProcessor,
-                QThreadKbClient)
+@create_app(XasTimCtrlWidget,
+            XasTimProcessor,
+            QThreadKbClient)
 class XasTim(_FoamLightApp):
     """XAS-TIM Application."""
 

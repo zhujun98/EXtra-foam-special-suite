@@ -26,7 +26,7 @@ from ..config import (
     _MAX_INT32, _PIXEL_DTYPE, _MAX_N_GOTTHARD_PULSES, GOTTHARD_DEVICE
 )
 from ..core import (
-    create_special, profiler, QThreadKbClient, QThreadWorker,
+    create_app, profiler, QThreadKbClient, QThreadWorker,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 from ..exceptions import ProcessingError
@@ -409,9 +409,9 @@ class GotthardHist(HistWidgetF):
             self.updateTitle(mean, median, std)
 
 
-@create_special(GotthardCtrlWidget,
-                GotthardProcessor,
-                QThreadKbClient)
+@create_app(GotthardCtrlWidget,
+            GotthardProcessor,
+            QThreadKbClient)
 class Gotthard(_FoamLightApp):
     """Gotthard application."""
 

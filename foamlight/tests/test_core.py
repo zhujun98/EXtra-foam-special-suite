@@ -12,7 +12,7 @@ from foamgraph import ImageViewF, PlotWidgetF
 
 from foamlight import mkQApp
 from foamlight.core import (
-    _BaseAnalysisCtrlWidgetS, _FoamLightApp, create_special,
+    _BaseAnalysisCtrlWidgetS, _FoamLightApp, create_app,
     QThreadKbClient, QThreadFoamClient, QThreadWorker
 )
 from foamlight.logger import logger
@@ -79,7 +79,7 @@ class testCore(unittest.TestCase):
                 """Override."""
                 pass
 
-        @create_special(DummyCtrlWidget, DummyProcessor, QThreadKbClient)
+        @create_app(DummyCtrlWidget, DummyProcessor, QThreadKbClient)
         class DummyWindow(_FoamLightApp):
             _title = "Dummy"
             _long_title = "Dummy analysis"

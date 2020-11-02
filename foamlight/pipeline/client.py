@@ -19,6 +19,7 @@ import zmq
 import msgpack
 
 from karabo_bridge import deserialize
+from karabo_bridge import Client as KaraboBridgeClient
 
 
 class FoamZmqClient:

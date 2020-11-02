@@ -19,7 +19,7 @@ from foamgraph import (
 from pyfoamalgo import SimplePairSequence
 
 from ..core import (
-    create_special, profiler, QThreadWorker, QThreadKbClient,
+    create_app, profiler, QThreadWorker, QThreadKbClient,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 
@@ -154,9 +154,9 @@ class XesTimingDelayScan(TimedPlotWidgetF):
         self._plot.setData(*self._data['delay_scan'])
 
 
-@create_special(XesTimingCtrlWidget,
-                XesTimingProcessor,
-                QThreadKbClient)
+@create_app(XesTimingCtrlWidget,
+            XesTimingProcessor,
+            QThreadKbClient)
 class XesTiming(_FoamLightApp):
     """XES timing application."""
 

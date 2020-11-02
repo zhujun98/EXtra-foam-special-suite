@@ -26,7 +26,7 @@ from foamgraph import (
 from pyfoamalgo import compute_spectrum_1d, nansum, SimpleSequence
 
 from ..core import (
-    create_special, profiler, QThreadWorker, QThreadFoamClient,
+    create_app, profiler, QThreadWorker, QThreadFoamClient,
     _BaseAnalysisCtrlWidgetS, _FoamLightApp
 )
 from ..exceptions import ProcessingError
@@ -534,9 +534,9 @@ class TrXasHeatmap(TimedImageViewF):
         self.setLabel('left', label)
 
 
-@create_special(TrXasCtrlWidget,
-                TrXasProcessor,
-                QThreadFoamClient)
+@create_app(TrXasCtrlWidget,
+            TrXasProcessor,
+            QThreadFoamClient)
 class TrXas(_FoamLightApp):
     """Time-resolved XAS application."""
 
