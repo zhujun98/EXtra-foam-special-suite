@@ -2,6 +2,7 @@ foamlight
 =========
 
 [![Build Status](https://travis-ci.com/zhujun98/foamlight.svg?branch=master)](https://travis-ci.com/zhujun98/foamlight)
+[![Documentation](https://img.shields.io/readthedocs/foamlight)](https://foamlight.readthedocs.io/en/latest/)
 
 
 **foamlight** is an evolution of [EXtra-foam special suite](https://extra-foam.readthedocs.io/en/latest/special_suite.html#introduction).
