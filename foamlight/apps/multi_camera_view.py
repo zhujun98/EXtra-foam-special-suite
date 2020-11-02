@@ -149,7 +149,7 @@ class MultiCameraView(_FoamLightApp):
     _long_title = "Multi-camera view"
 
     def __init__(self, topic):
-        super().__init__(topic, with_dark=False)
+        super().__init__(topic, with_levels=True)
 
         self._views = [
             CameraView(i, parent=self) for i in range(_N_CAMERAS)

@@ -47,7 +47,7 @@ class _CommonCtrlWidgetS(QFrame):
     # forward signal with the same name in _SingleRoiCtrlWidget
     roi_geometry_change_sgn = pyqtSignal(object)
 
-    def __init__(self, parent=None, *, with_dark=True, with_levels=True):
+    def __init__(self, parent=None, *, with_dark=False, with_levels=False):
         """Initialization.
 
         :param bool with_dark: whether the dark recording/subtraction control
@@ -734,6 +734,7 @@ class _FoamLightApp(QMainWindow):
         """Initialization.
 
         :param str topic: topic, e.g. SCS, MID, DET, etc.
+        :param **kwargs: pass to the constructor of _CommonCtrlWidgetS.
         """
         super().__init__()
 

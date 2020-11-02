@@ -420,7 +420,7 @@ class Gotthard(_FoamLightApp):
     _long_title = "Gotthard analysis"
 
     def __init__(self, topic):
-        super().__init__(topic)
+        super().__init__(topic, with_dark=True, with_levels=True)
 
         self._poi_plots = GotthardPulsePlot(parent=self)
         self._mean_plots = GotthardAvgPlot(parent=self)
