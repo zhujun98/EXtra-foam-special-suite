@@ -23,7 +23,6 @@ from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QSizePolicy, QSplitter
 )
 
-from extra_data import RunDirectory
 from karabo_bridge import Client as KaraboBridgeClient
 
 from foamgraph import ImageViewF, set_button_color, SmartLineEdit
@@ -313,6 +312,8 @@ class QThreadWorker(QObject):
         implementation of the child class.
         """
         try:
+            from extra_data import RunDirectory
+
             run = RunDirectory(dirpath)
             self.log.info(f"Loaded run from {dirpath}")
             return run
