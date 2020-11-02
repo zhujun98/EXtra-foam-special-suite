@@ -30,7 +30,7 @@ install:
   - cd foamgraph
   - pip install .
   - cd ..
-  - pip install -e .[test,euxfel]
+  - pip install -e .[test,karabo]
 
 before_script:
   - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1400x900x24

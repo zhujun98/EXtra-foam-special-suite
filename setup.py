@@ -30,7 +30,7 @@ setup(
         'foamgraph',
     ],
     extras_require={
-        'euxfel': [
+        'karabo': [
             'extra_data',
             'karabo-bridge',
         ],
