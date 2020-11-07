@@ -27,7 +27,7 @@ setup(
     tests_require=['pytest'],
     install_requires=[
         'pyfoamalgo>=0.0.8',
-        'foamgraph',
+        'foamgraph@https://github.com/zhujun98/foamgraph/archive/0.0.1.tar.gz',
     ],
     extras_require={
         'karabo': [

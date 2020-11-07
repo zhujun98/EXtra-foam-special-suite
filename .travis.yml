@@ -26,10 +26,6 @@ install:
   - conda install -y python=$PYTHON_VERSION
   - python --version
   - conda install -y -c conda-forge pyfoamalgo
-  - git clone https://github.com/zhujun98/foamgraph.git
-  - cd foamgraph
-  - pip install .
-  - cd ..
   - pip install -e .[test,karabo]
 
 before_script:
